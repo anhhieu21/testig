@@ -1,0 +1,50 @@
+{{#if alert}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  
+  <a href="/api/controllers/post-page" style="color: red">(Trở về)</a>
+</div>
+{{/if}}
+{{#each rows}}
+<form class="row g-3 needs-validation" method="POST" action="/api/controllers/lock-productU/{{this.productId}}" novalidate>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" value="{{this.productId}}"
+                placeholder="First Name" name="first_name">
+            <label for="floatingInput">First Name</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" value="{{this.name}}"
+                placeholder="Last Name" name="last_name">
+            <label for="floatingInput">Last Name</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" value="{{this.idUser}}"
+                placeholder="email@email.com" name="email">
+            <label for="floatingInput">Email</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" value="{{this.lockPr}}" placeholder="Phone"
+                name="phone">
+            <label for="floatingInput">Phone</label>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-floating mb-3">
+            <textarea class="form-control" placeholder="Leave a comment here" id="comments" name="comments"
+                style="height: 200px">{{this.idUser}}</textarea>
+            <label for="comments">Comments</label>
+        </div>
+    </div>
+    <div class="button">
+        <button class="btn btn-secondary" type="submit" >Khóa tin</button>
+    </div>
+</form>
+{{/each}}

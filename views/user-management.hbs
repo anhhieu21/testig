@@ -1,0 +1,150 @@
+<div id="app">
+  <div id="sidebar" class="active">
+    <div class="sidebar-wrapper active">
+      <div class="sidebar-header">
+        <div class="d-flex justify-content-between">
+          <div class="logo">
+            <a href="/api/controllers/home"><img src="/images/logo/logo.jpg" alt="Logo" srcset="" />Admin</a>
+            <p style="font-size:14px">Quản lý người dùng và tin đăng</p>
+          </div>
+          <div class="toggler">
+            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-menu">
+        <ul class="menu">
+          <li class="sidebar-title">Menu</li>
+
+          <li class="sidebar-item">
+            <a href="/api/controllers/home" class="sidebar-link">
+              <i class="bi bi-grid-fill"></i>
+              <span>Tổng quan</span>
+            </a>
+          </li>
+
+          <li class="sidebar-title">TIN ĐĂNG &amp; NGƯỜI DÙNG</li>
+
+          <li class="sidebar-item">
+            <a href="/api/controllers/post-page" class="sidebar-link">
+              <i class="bi bi-grid-1x2-fill"></i>
+              <span>Tin đăng</span>
+            </a>
+          </li>
+
+          <li class="sidebar-item active">
+            <a href="/api/controllers/user-mng" class="sidebar-link">
+              <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+              <span>Người dùng</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <button class="sidebar-toggler btn x">
+        <i data-feather="x"></i>
+      </button>
+    </div>
+  </div>
+  <div id="main">
+    <header class="mb-3">
+      <a href="#" class="burger-btn d-block d-xl-none">
+        <i class="bi bi-justify fs-3"></i>
+      </a>
+    </header>
+
+    <div class="page-heading">
+      <div class="page-title">
+        <div class="row">
+          <div class="col-12 col-md-6 order-md-1 order-last">
+            <h3>Quản lý người dùng</h3>
+            <p class="text-subtitle text-muted">
+              Kiểm tra người dùng ở đây
+            </p>
+          </div>
+          <div class="col-12 col-md-6 order-md-2 order-first">
+            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="/api/controllers/home">Tổng quan</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Người dùng
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <section class="section">
+        <div class="card">
+          <div class="card-header">Dữ liệu tài khoản</div>
+          <div class="card-body">
+            <table class="table table-striped" id="table1">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Tên</th>
+                  <th>Email</th>
+                  <th>Số điện thoại</th>
+                  <th>Trạng thái</th>
+                  <th>Địa chỉ</th>
+                  <th>Thực hiện</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{!--
+                <script type="text/javascript">
+                  document.addEventListener("DOMContentLoaded", function (event) {
+                    for (String status : rows.status) {
+                    var status = document.getElementById("status").innerText;
+                    if (status == "active") {
+                      document.getElementById("status").style.color = "red";
+                    }
+                  }
+                    
+                  });
+
+                </script> --}}
+
+                {{#each rows}}
+                <tr>
+                  <td>{{this.idUser}}</td>
+                  <td>{{this.user_name}}</td>
+                  <td>{{this.email}}</td>
+                  <td>{{this.phone}}</td>
+                  <td>
+                    <span class="badge bg-success" id="status">{{this.status}}</span>
+                  </td>
+                  <td>{{this.address}}</td>
+                  <td>
+                    <div class="buttons">
+                      <a href="/api/controllers/lock-user/{{this.idUser}}" type="button" class="btn btn-danger">Khóa tài
+                        khoản</a>
+                      <a href="/api/controllers/lockout-user/{{this.idUser}}" type="button" class="btn btn-primary">Mở
+                        khóa</a>
+                    </div>
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="footer clearfix mb-0 text-muted">
+        <div class="float-start">
+          <p>Đồ Án 2021 </p>
+        </div>
+        <div class="float-end">
+          <p>
+            <span class="text-danger"><i class="bi bi-heart"></i></span>
+            <a href="https://www.facebook.com/nhuanhhieu.21/">A.Hiếu</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>

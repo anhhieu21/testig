@@ -1,0 +1,26 @@
+  private final Filter newFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            ArrayList<DataProduct> filterList = new ArrayList<>();
+            if (charSequence == null || charSequence.length() == 0) {
+                filterList.addAll(dataProducts1);
+            } else {
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+                for (DataProduct dataProduct2 : dataProducts1) {
+                    if (dataProduct2.getName().toLowerCase().contains(filterPattern)) ;
+                    filterList.add(dataProduct2);
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filterList;
+            results.count = filterList.size();
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            dataProducts.clear();
+            dataProducts.addAll((Collection<? extends DataProduct>) filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
