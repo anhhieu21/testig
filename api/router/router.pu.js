@@ -64,7 +64,7 @@ router.delete("/deleteUser", deleteUser);
 router.get("/login", (req, res) => {
     res.render("login-admin");
 });
-router.get('/post-page', webapp.view); //view và view2 từ controller
+router.get('/post-page', webapp.view);
 router.get('/home', (req, res, next) => {
     res.render('home');
 });
