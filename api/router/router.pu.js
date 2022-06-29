@@ -32,7 +32,7 @@ router.get("/getById", findById);
 router.get("/type1", findType1);
 router.get("/type2", findType2);
 // insert
-router.post("/insert", upload, create);
+router.post("/insert", create);
 //update update
 router.put("/update", upload, update);
 router.put("/updateLock", updateLockPr);
