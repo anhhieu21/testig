@@ -196,7 +196,7 @@ module.exports = {
     },
     createUser: async (req, res) => {
         try {
-            var data = req.query;
+            var data = req.body;
             // if (req.files["image_1"])
             //     data["image_1"] = req.files["image_1"][0].filename;
 
@@ -204,7 +204,7 @@ module.exports = {
             //     data["image_2"] = req.files["image_2"][0].filename;
 
             const result = await createUser(data);
-            return res.status(201).json({ result });
+            return res.status(200).json({ result });
         } catch (e) {
             return res.status(500).json({
                 "message": "Internal Server Error"
